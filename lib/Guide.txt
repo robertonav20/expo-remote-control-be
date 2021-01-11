@@ -7,7 +7,7 @@ Create C++ Header File
 javah -jni VolumeController
 
 Compile C++
-gcc -D_JNI_IMPLEMENTATION_ -Wl,--kill-at -I"%JAVA_HOME%"\include -I"%JAVA_HOME%"\include\win32 HelloWorld.c -shared -o Helloworld.dll -lstdc++ -lole32 -loleaut32
+gcc -D_JNI_IMPLEMENTATION_ -Wl,--kill-at -I"%JAVA_HOME%"\include -I"%JAVA_HOME%"\include\win32 VolumeController.cpp -shared -o VolumeController.dll -lstdc++ -lole32 -loleaut32
 
 Exec
-java -Djava.library.path=. HelloWorld
+java -Djava.library.path=. VolumeController

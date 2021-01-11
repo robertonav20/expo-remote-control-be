@@ -10,26 +10,66 @@ extern "C" {
 /*
  * Class:     VolumeController
  * Method:    muteOn
- * Signature: ()S
+ * Signature: ()Z
  */
-JNIEXPORT jshort JNICALL Java_VolumeController_muteOn
-  (JNIEnv *, jobject);
+JNIEXPORT jboolean JNICALL Java_VolumeController_muteOn
+  (JNIEnv *, jclass);
 
 /*
  * Class:     VolumeController
  * Method:    muteOff
- * Signature: ()S
+ * Signature: ()Z
  */
-JNIEXPORT jshort JNICALL Java_VolumeController_muteOff
-  (JNIEnv *, jobject);
+JNIEXPORT jboolean JNICALL Java_VolumeController_muteOff
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     VolumeController
+ * Method:    increaseBy10Percentage
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_VolumeController_increaseBy10Percentage
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     VolumeController
+ * Method:    decreaseBy10Percentage
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_VolumeController_decreaseBy10Percentage
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     VolumeController
+ * Method:    increaseBy1Percentage
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_VolumeController_increaseBy1Percentage
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     VolumeController
+ * Method:    decreaseBy1Percentage
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_VolumeController_decreaseBy1Percentage
+  (JNIEnv *, jclass);
 
 /*
  * Class:     VolumeController
  * Method:    changeVolume
- * Signature: (F)S
+ * Signature: (I)Z
  */
-JNIEXPORT jshort JNICALL Java_VolumeController_changeVolume
-  (JNIEnv *, jobject, jfloat);
+JNIEXPORT jboolean JNICALL Java_VolumeController_changeVolume
+  (JNIEnv *, jclass, jint);
+
+/*
+ * Class:     VolumeController
+ * Method:    getVolume
+ * Signature: ()I
+ */
+JNIEXPORT jint JNICALL Java_VolumeController_getVolume
+  (JNIEnv *, jclass);
 
 #ifdef __cplusplus
 }
