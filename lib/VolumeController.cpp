@@ -130,9 +130,10 @@ JNIEXPORT jint JNICALL Java_VolumeController_getVolume(JNIEnv *env, jclass clazz
     defaultDevice->Release();
     defaultDevice = NULL;
 
-    float currentVolume = 0;
+    float currentVolume = 0.00;
     hr = endpointVolume->GetMasterVolumeLevelScalar(&currentVolume);
 
+    printf("Valore: %f\n", currentVolume);
     endpointVolume->Release();
 
     CoUninitialize();
@@ -162,7 +163,7 @@ JNIEXPORT jboolean JNICALL Java_VolumeController_increaseBy10Percentage(JNIEnv *
     defaultDevice->Release();
     defaultDevice = NULL;
 
-    float currentVolume = 0;
+    float currentVolume = 0.0;
     hr = endpointVolume->GetMasterVolumeLevelScalar(&currentVolume);
 
     currentVolume = currentVolume + 0.10;
@@ -198,7 +199,7 @@ JNIEXPORT jboolean JNICALL Java_VolumeController_decreaseBy10Percentage(JNIEnv *
     defaultDevice->Release();
     defaultDevice = NULL;
 
-    float currentVolume = 0;
+    float currentVolume = 0.0;
     hr = endpointVolume->GetMasterVolumeLevelScalar(&currentVolume);
 
     currentVolume = currentVolume - 0.10;
@@ -234,7 +235,7 @@ JNIEXPORT jboolean JNICALL Java_VolumeController_increaseBy1Percentage(JNIEnv *e
     defaultDevice->Release();
     defaultDevice = NULL;
 
-    float currentVolume = 0;
+    float currentVolume = 0.0;
     hr = endpointVolume->GetMasterVolumeLevelScalar(&currentVolume);
 
     currentVolume = currentVolume + 0.01;
@@ -270,7 +271,7 @@ JNIEXPORT jboolean JNICALL Java_VolumeController_decreaseBy1Percentage(JNIEnv *e
     defaultDevice->Release();
     defaultDevice = NULL;
 
-    float currentVolume = 0;
+    float currentVolume = 0.0;
     hr = endpointVolume->GetMasterVolumeLevelScalar(&currentVolume);
 
     currentVolume = currentVolume - 0.01;
