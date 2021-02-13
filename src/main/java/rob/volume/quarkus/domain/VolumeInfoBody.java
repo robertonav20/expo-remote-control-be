@@ -1,10 +1,8 @@
 package rob.volume.quarkus.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 @Data
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class VolumeInfoBody {
+public class VolumeInfoBody extends Response {
     private Integer volume;
 }
