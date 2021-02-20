@@ -1,4 +1,4 @@
-package rob.volume.quarkus;
+package rob.volume.quarkus.utils;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;

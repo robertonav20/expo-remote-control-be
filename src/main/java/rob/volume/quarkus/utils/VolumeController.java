@@ -1,4 +1,4 @@
-package rob.volume.quarkus;
+package rob.volume.quarkus.utils;
 
 import com.sun.jna.Library;
 import com.sun.jna.Native;

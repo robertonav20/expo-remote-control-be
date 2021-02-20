@@ -1,4 +1,4 @@
-package rob.volume.quarkus;
+package rob.volume.quarkus.logging;
 
 import io.vertx.core.http.HttpServerRequest;
 import org.jboss.logging.Logger;
@@ -9,7 +9,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.ext.Provider;
 import java.io.BufferedReader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.stream.Collectors;
 
