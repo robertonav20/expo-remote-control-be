@@ -2,7 +2,6 @@ package rob.volume.quarkus.controller;
 
 import rob.volume.quarkus.domain.MouseBody;
 import rob.volume.quarkus.domain.MouseInfoBody;
-import rob.volume.quarkus.domain.Response;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -24,8 +23,8 @@ public class MouseRestController {
     @POST
     @Path("/mouse/controller")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response move(MouseBody mouseBody) {
-        Response response = new Response();
+    public MouseInfoBody move(MouseBody mouseBody) {
+        MouseInfoBody response = new MouseInfoBody();
         try {
             if (mouseBody.getXCoordinate() != null && mouseBody.getYCoordinate() != null) {
                 Point point = MouseInfo.getPointerInfo().getLocation();
@@ -46,6 +45,14 @@ public class MouseRestController {
                 robot.mousePress(InputEvent.BUTTON3_DOWN_MASK);
                 robot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
             }
+
+            Point point = MouseInfo.getPointerInfo().getLocation();
+            double xCoordinates = point.getX();
+            double yCoordinates = point.getY();
+
+            response.setX((int) xCoordinates);
+            response.setY((int) yCoordinates);
+
         } catch (Exception e) {
             System.out.println("Failed trying to changing coordinates of mouse exception = " + e);
             response.setCode(-1);
