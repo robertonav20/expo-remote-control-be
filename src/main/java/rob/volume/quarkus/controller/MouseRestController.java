@@ -15,13 +15,18 @@ import java.awt.event.InputEvent;
 @Path("/")
 public class MouseRestController {
 
+    private Robot robot;
+
+    public MouseRestController() throws AWTException {
+        this.robot = new Robot();
+    }
+
     @POST
     @Path("/mouse/controller")
     @Produces(MediaType.APPLICATION_JSON)
     public Response move(MouseBody mouseBody) {
         Response response = new Response();
         try {
-            Robot robot = new Robot();
             if (mouseBody.getXCoordinate() != null && mouseBody.getYCoordinate() != null) {
                 Point point = MouseInfo.getPointerInfo().getLocation();
                 double xCurrent = point.getX();
@@ -48,6 +53,7 @@ public class MouseRestController {
             return response;
         }
 
+        response.setMessage("Mouse position changed!");
         response.setCode(0);
         return response;
     }

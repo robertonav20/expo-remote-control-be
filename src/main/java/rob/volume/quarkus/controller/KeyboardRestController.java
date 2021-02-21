@@ -15,13 +15,18 @@ import java.util.Arrays;
 @Path("/")
 public class KeyboardRestController {
 
+    private Robot robot;
+
+    public KeyboardRestController() throws AWTException {
+        this.robot = new Robot();
+    }
+
     @POST
     @Path("/keyboard/controller")
     @Produces(MediaType.APPLICATION_JSON)
     public Response trigger(KeyboardBody keyboardBody) {
         Response response = new Response();
         try {
-            Robot robot = new Robot();
             if (keyboardBody.getKeyEvents() != null && keyboardBody.getKeyEvents().length > 0) {
                 Arrays.stream(keyboardBody.getKeyEvents())
                         .forEach(k -> {
@@ -53,6 +58,7 @@ public class KeyboardRestController {
             return response;
         }
 
+        response.setMessage("Keyboard event triggered!");
         response.setCode(0);
         return response;
     }
